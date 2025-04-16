@@ -1,4 +1,4 @@
-# 💰 smartspend-backend" 
+💰 smartspend-backend
 
 This is the backend for a personal finance management app. Built with **Node.js**, **Express**, and **MongoDB**, it supports features like:
 
@@ -36,6 +36,7 @@ backend/
 ├── .env                # Secret keys and environment variables
 └── README.md
 
+---
 
 ## 📬 API Endpoints
 
