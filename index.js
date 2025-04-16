@@ -2,6 +2,8 @@ import express from "express";
 import dotenv from 'dotenv';
 import mongoose from "mongoose";
 import authRouter from "./routes/authRoutes.js";
+import incomeRouter from "./routes/incomeRoutes.js";
+import userRouter from "./routes/userRoutes.js";
 
 
 
@@ -27,7 +29,15 @@ await mongoose.connect(process.env.MONGO_URL).then(() => {
 // Use middlewares
 
 // Use routes
-app.use('/api/v1', authRouter)
+// route for auth(register/login)
+app.use('/api/auth', authRouter)
+
+// route for users
+app.use('/api/user', userRouter)
+
+// route for incomes
+app.use('/api/v1', incomeRouter)
+
 
 // Listen for incoming requests
 const port = 5000;
