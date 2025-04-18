@@ -5,13 +5,13 @@ import {
     deleteIncome,
     updateIncome,
 } from '../controllers/incomeController.js';
-// import protectRoute from '../middleware/protectRoute.js';
+import protectRoute from '../middlewares/protectRoute.js';
 
 const incomeRouter = express.Router();
 
-incomeRouter.post('/incomes', addIncome); // Add protectRoute when you work on the autheticators
-incomeRouter.get('/incomes', getIncomes); // Add protectRoute when you work on the autheticators
-incomeRouter.delete('/incomes/:id', deleteIncome); // Add protectRoute when you work on the autheticators
-incomeRouter.put('/incomes:id', updateIncome) // Add protectRoute when you work on the autheticators
+incomeRouter.post('/income', protectRoute, addIncome); // Add protectRoute when you work on the autheticators
+incomeRouter.get('/incomes', protectRoute, getIncomes); // Add protectRoute when you work on the autheticators
+incomeRouter.delete('/income/:id', protectRoute, deleteIncome); // Add protectRoute when you work on the autheticators
+incomeRouter.put('/income/:id', protectRoute, updateIncome) // Add protectRoute when you work on the autheticators
 
-export default incomeRouter;
+export default incomeRouter; 

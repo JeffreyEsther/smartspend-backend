@@ -4,6 +4,7 @@ import mongoose from "mongoose";
 import authRouter from "./routes/authRoutes.js";
 import incomeRouter from "./routes/incomeRoutes.js";
 import userRouter from "./routes/userRoutes.js";
+import wishlistRouter from "./routes/wishlistRoutes.js";
 
 
 
@@ -36,8 +37,10 @@ app.use('/api/auth', authRouter)
 app.use('/api/user', userRouter)
 
 // route for incomes
-app.use('/api/v1', incomeRouter)
+app.use('/api', incomeRouter)
 
+// route for wishlist
+app.use('/api', wishlistRouter);
 
 // Listen for incoming requests
 const port = process.env.PORT || 3000

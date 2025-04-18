@@ -17,7 +17,7 @@ const protectRoute = async (req, res, next) => {
         const decoded = jwt.verify(token, process.env.JWT_SECRET_KEY);
 
         // Fetch the user from the database (excluding password)
-        req.user = await User.findById(decoded.userId).select('-password');
+        req.user = await User.findById(decoded.id).select('-password');
 
         // If everything is valid, continue to the next middleware or route handler
         next();

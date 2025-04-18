@@ -1,5 +1,5 @@
 import Income from '../models/income.js';
-import { incomeSchema } from '../validators/incomeValidator.js'; 
+import { incomeSchema } from '../validators/incomeValidator.js';
 
 // Add a new income
 export const addIncome = async (req, res) => {
