@@ -23,15 +23,20 @@ const wishlistSchema = new mongoose.Schema({
         enum: ['low', 'medium', 'high'],
         default: 'medium',
     },
-    type: {
-        type: String,
-        enum: ['need', 'want'],
-        required: true,
+    progress: {
+        type: Number,
+        default: 0,
     },
     createdAt: {
         type: Date,
         default: Date.now,
     },
+});
+
+// Automatically calculate progress before saving
+wishlistSchema.pre('save', function (next) {
+    this.progress = Math.min((this.savedAmount / this.targetAmount) * 100, 100);
+    next();
 });
 
 const Wishlist = mongoose.model('Wishlist', wishlistSchema);
