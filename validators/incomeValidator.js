@@ -10,6 +10,6 @@ export const incomeSchema = Joi.object({
     'any.required': 'Source is required',
     'string.base': 'Source must be a string',
   }),
-  description: Joi.string().allow('', null),
+  category: Joi.string().valid("Salary", "Business", "Freelance", "Investments", "Rental Income", "Government Benefits", "Gifts/Support", "Other").default('salary'),
   date: Joi.date().optional(),
 });

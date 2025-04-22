@@ -5,6 +5,8 @@ import authRouter from "./routes/authRoutes.js";
 import incomeRouter from "./routes/incomeRoutes.js";
 import userRouter from "./routes/userRoutes.js";
 import wishlistRouter from "./routes/wishlistRoutes.js";
+import budgetRouter from "./routes/budgetRoutes.js";
+import expenseRouter from "./routes/expenseRoutes.js";
 
 
 
@@ -41,6 +43,12 @@ app.use('/api', incomeRouter)
 
 // route for wishlist
 app.use('/api', wishlistRouter);
+
+// route for budget
+app.use('/api', budgetRouter);
+
+// route for expenses
+app.use('/api', expenseRouter);
 
 // Listen for incoming requests
 const port = process.env.PORT || 3000

@@ -6,15 +6,20 @@ const incomeSchema = new mongoose.Schema({
         ref: 'User',
         required: true,
     },
-    amount: {
-        type: Number,
-        required: true,
-    },
     source: {
         type: String,
         required: true,
     },
-    description: String,
+    amount: {
+        type: Number,
+        required: true,
+    },
+    category: {
+        type: String,
+        enum: ["Salary", "Business", "Freelance", "Investments", "Rental Income", "Government Benefits", "Gifts/Support", "Other"],
+        default: 'Salary'
+    },
+    
     date: {
         type: Date,
         default: Date.now,
