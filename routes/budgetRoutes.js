@@ -4,7 +4,7 @@ import protectRoute from '../middlewares/protectRoute.js';
 
 const budgetRouter = express.Router();
 
-budgetRouter.post('/', protectRoute, addBudget);
-budgetRouter.get('/', protectRoute, getBudgets);
+budgetRouter.post('/budget', protectRoute, addBudget);
+budgetRouter.get('/budgets', protectRoute, getBudgets);
 
 export default budgetRouter;

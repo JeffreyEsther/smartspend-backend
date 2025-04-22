@@ -4,7 +4,7 @@ import protectRoute from '../middlewares/protectRoute.js';
 
 const expenseRouter = express.Router();
 
-expenseRouter.post('/', protectRoute, addExpense);
-expenseRouter.get('/', protectRoute, getExpenses);
+expenseRouter.post('/expense', protectRoute, addExpense);
+expenseRouter.get('/expenses', protectRoute, getExpenses);
 
 export default expenseRouter;
