@@ -2,7 +2,7 @@ import Joi from 'joi';
 
 // Registration validation
 export const registerSchema = Joi.object({
-    fullName: Joi.string().required().messages({
+    fullName: Joi.string().messages({
         'any.required': 'Full name is required',
         'string.base': 'Full name must be a string',
     }),

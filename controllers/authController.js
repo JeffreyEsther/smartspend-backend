@@ -18,7 +18,7 @@ export const registerUser = async (req, res) => {
         return res.status(400).json({ message: error.details[0].message });
     }
 
-    const { firstName, lastName, userName, email, password } = req.body;
+    const { fullName, userName, email, password } = req.body;
 
     try {
         // Check if user already exists with email or username
@@ -32,8 +32,7 @@ export const registerUser = async (req, res) => {
 
         // Creating new user in the DB
         const user = await User.create({
-            firstName,
-            lastName,
+            fullName,
             userName,
             email,
             password: hashedPassword,
@@ -42,7 +41,7 @@ export const registerUser = async (req, res) => {
         // Sending back the user info and JWT token
         res.status(201).json({
             _id: user._id,
-            name: `${user.firstName} ${user.lastName}`,
+            fullName: user.fullName,
             userName: user.userName,
             email: user.email,
             token: generateToken(user._id),
@@ -81,7 +80,7 @@ export const loginUser = async (req, res) => {
         // if login is successful, return user info and a JWT token
         res.status(200).json({
             _id: user._id,
-            name: `${user.firstName} ${user.lastName}`,
+            fullName: user.fullName,
             userName: user.userName,
             email: user.email,
             token: generateToken(user._id),
