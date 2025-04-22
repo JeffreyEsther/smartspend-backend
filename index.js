@@ -30,7 +30,7 @@ await mongoose.connect(process.env.MONGO_URL).then(() => {
 
 // CORS middleware
 app.use(cors({
-    origin: ['https://localhost:5173', 'https://smartspend-backend-3a7v.onrender.com/api'],
+    origin: ['http://localhost:5173', 'https://smartspend-backend-3a7v.onrender.com/api'],
     credentials: true,
 }));
 
