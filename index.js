@@ -7,6 +7,7 @@ import userRouter from "./routes/userRoutes.js";
 import wishlistRouter from "./routes/wishlistRoutes.js";
 import budgetRouter from "./routes/budgetRoutes.js";
 import expenseRouter from "./routes/expenseRoutes.js";
+import cors from "cors";
 
 
 
@@ -17,8 +18,6 @@ dotenv.config();
 // create an express app
 const app = express();
 
-// parses incoming JSON
-app.use(express.json());
 
 // make a database connection
 await mongoose.connect(process.env.MONGO_URL).then(() => {
@@ -27,9 +26,16 @@ await mongoose.connect(process.env.MONGO_URL).then(() => {
     console.log(error)
 });
 
-
-
 // Use middlewares
+
+// CORS middleware
+app.use(cors({
+    origin: ['https://localhost:5173', 'https://smartspend-backend-3a7v.onrender.com/api'],
+    credentials: true,
+}));
+
+// parses incoming JSON
+app.use(express.json());
 
 // Use routes
 // route for auth(register/login)
